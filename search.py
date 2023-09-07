@@ -17,12 +17,13 @@ app = App(token=SLACK_TOKEN)
 def search_messages(query, format="json"):
     all_messages = []
     
-    next_cursor = None
+    next_cursor = "*"
     
     while True:
         params = {
             "query": query,
-            "count": 100  # Fetch 100 messages at a time; adjust as needed
+            "count": 100,
+            "cursor": next_cursor
         }
         
         if next_cursor:
@@ -33,8 +34,10 @@ def search_messages(query, format="json"):
         
         # Append the results to the all_messages list
         all_messages.extend(response['messages']['matches'])
-
-        next_cursor = response.get("response_metadata", {}).get("next_cursor")
+        
+        # get next_cursor from response_metada or default to None
+        next_cursor = response['messages']['pagination'].get("next_cursor", None)
+        
         if not next_cursor:
             break
 
