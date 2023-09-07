@@ -10,7 +10,9 @@ This project uses `pyenv` to manage dependencies.
 #### Prerequisites
 1. A Slack workspace with enough privileges to install apps. You may need to get in contact with an Admin or Owner on your workspace to be able to do this.
 2. Make sure your app has the user scope enable: `search:read`
-2. Postman to authorize and test: https://api.slack.com/tutorials/slack-apps-and-postman
+
+### Steps
+Use postman to authorize and test: https://api.slack.com/tutorials/slack-apps-and-postman
 
 **Note**: Make sure to read "2. Add in the User scopes that you need" section.
 
